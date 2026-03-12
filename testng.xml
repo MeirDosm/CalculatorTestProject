@@ -1,0 +1,28 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="CalculatorTestSuite" parallel="tests" thread-count="2">
+
+
+    <groups>
+        <define name="basic">
+            <include name="sumTests"/>
+        </define>
+        <define name="advanced">
+            <include name="doubleTests"/>
+        </define>
+    </groups>
+
+
+    <test name="CalculatorTests">
+        <groups>
+            <run>
+                <include name="basic"/>
+                <include name="advanced"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="AddTest"/>
+            <class name="SumDoubleTest"/>
+        </classes>
+    </test>
+
+</suite>
