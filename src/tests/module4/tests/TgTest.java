@@ -21,7 +21,6 @@ public class TgTest {
         calculator = null;
     }
 
-    // ----------------- DOUBLE TAN TESTS -----------------
     @DataProvider(name = "tgDoubleData")
     public Object[][] tgDoubleData() {
         return new Object[][]{
