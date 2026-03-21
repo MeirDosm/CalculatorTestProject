@@ -1,11 +1,13 @@
+package module4.tests;
+
 import com.epam.tat.module4.Calculator;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.Test;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
-public class AddTest {
+public class IsPositiveTest {
 
     private Calculator calculator;
 
@@ -19,19 +21,20 @@ public class AddTest {
         calculator = null;
     }
 
-    @DataProvider(name = "sumLongData")
-    public Object[][] sumLongData() {
+    @DataProvider(name = "isPositiveLongData")
+    public Object[][] isPositiveLongData() {
         return new Object[][]{
-                {1L, 2L, 3L},
-                {0L, 0L, 0L},
-                {-5L, -3L, -8L},
-                {10L, -5L, 5L}
+                {5L, true},
+                {0L, false},
+                {-3L, false},
+                {100L, true},
+                {-100L, false}
         };
     }
 
-    @Test(groups = {"basic"}, dataProvider = "sumLongData")
-    public void testSumLong(long a, long b, long expected) {
-        long result = calculator.sum(a, b);
+    @Test(groups = {"basic"}, dataProvider = "isPositiveLongData")
+    public void testIsPositiveLong(long value, boolean expected) {
+        boolean result = calculator.isPositive(value);
         Assert.assertEquals(result, expected);
     }
 }

@@ -1,27 +1,32 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="CalculatorTestSuite" parallel="tests" thread-count="2">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="CalculatorSuite" parallel="tests" thread-count="3">
 
 
-    <groups>
-        <define name="basic">
-            <include name="sumTests"/>
-        </define>
-        <define name="advanced">
-            <include name="doubleTests"/>
-        </define>
-    </groups>
-
-
-    <test name="CalculatorTests">
+    <test name="BasicTests">
         <groups>
             <run>
                 <include name="basic"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="module4.tests.SumTest"/>
+            <class name="module4.tests.SubTest"/>
+            <class name="module4.tests.CosTest"/>
+        </classes>
+    </test>
+
+
+    <test name="AdvancedTests">
+        <groups>
+            <run>
                 <include name="advanced"/>
             </run>
         </groups>
         <classes>
-            <class name="AddTest"/>
-            <class name="SumDoubleTest"/>
+            <class name="module4.tests.MultTest"/>
+            <class name="module4.tests.DivTest"/>
+            <class name="module4.tests.TgTest"/>
+            <class name="module4.tests.CtgTest"/>
         </classes>
     </test>
 
